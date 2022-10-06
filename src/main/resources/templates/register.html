@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeni Üye Sayfası</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="/mdb.css" rel="stylesheet">
+    <script type="text/javascript" src="/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/mdb.min.js"></script>
+    <script type="text/javascript" src="/popper.min.js"></script>
+</head>
+<body>
+
+<style>
+    .background-radial-gradient {
+        background-color: hsl(218, 41%, 15%);
+        background-image: radial-gradient(650px circle at 0% 0%,
+        hsl(218, 41%, 35%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+                hsl(218, 41%, 45%) 15%,
+                hsl(218, 41%, 30%) 35%,
+                hsl(218, 41%, 20%) 75%,
+                hsl(218, 41%, 19%) 80%,
+                transparent 100%);
+    }
+
+    #radius-shape-1 {
+        height: 220px;
+        width: 220px;
+        top: -60px;
+        left: -130px;
+        background: radial-gradient(#44006b, #ad1fff);
+        overflow: hidden;
+    }
+
+    #radius-shape-2 {
+        border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+        bottom: -60px;
+        right: -110px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(#44006b, #ad1fff);
+        overflow: hidden;
+    }
+
+    .bg-glass {
+        background-color: hsla(0, 0%, 100%, 0.9) !important;
+        backdrop-filter: saturate(200%) blur(25px);
+    }
+</style>
+<section class="background-radial-gradient overflow-hidden">
+
+
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                    Bugün üye olarak <br />
+                    <span style="color: hsl(218, 81%, 75%)">en son haberlerden haberdar olun</span>
+                </h1>
+                <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                    Sitemize üye olarak tamamen ücretsiz bir şekilde ve tamamen sizin adınıza özelleştirilmiş
+                    en son haberleri takip ederek ilgilendiğiniz gündemden anında haberdar olabilirsiniz.
+                </p>
+            </div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                <div class="card bg-glass">
+                    <div class="card-body px-4 py-5 px-md-5">
+                        <form action="doregister" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+
+                                        <label class="form-label">Adınız</label>
+                                        <input name="name" type="text" class="form-control" placeholder="Adınızı giriniz" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" >Soyadınız</label>
+                                        <input name="surname" type="text"  class="form-control" placeholder="Soyadınızı giriniz" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+
+                                <label class="form-label" >Email Adresiniz</label>
+                                <input name="email" type="email" class="form-control" placeholder="Emailinizi giriniz" required />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" >Kullanıcı Adınız</label>
+                                <input name="username" type="text" class="form-control" placeholder="Kullanıcı adınızı giriniz" required />
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                    <label class="form-label" >Şifreniz</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Şifrenizi giriniz" required />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                    <label class="form-label" >Cinsiyetiniz</label>
+                                    <select class="form-select" id="floatingSelect" name="gender" aria-label="Floating label select example" required>
+                                        <option th:each="gender:${genders}" th:value="${gender}" th:text="${gender.gender}"></option>
+                                        <!--   <option value="">Seçiniz</option>-->
+                                        <!--   <option value="MALE">Erkek</option>-->
+                                        <!--   <option value="FEMALE">Kadın</option>-->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block mb-4">
+                                Üye Ol
+                            </button>
+                            <a href="http://localhost:9092/login/loginpage" class="btn btn-success btn-block mb-4 mx-3">Giriş Yap</a>
+
+                            <div class="text-center">
+                                <p>or sign up with:</p>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-google"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-github"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

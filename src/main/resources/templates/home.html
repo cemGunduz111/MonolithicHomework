@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Haberin Adresi</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link href="/mdb.css" rel="stylesheet">
+    <script type="text/javascript" src="/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/mdb.min.js"></script>
+    <style type="text/css">
+        .zoomE{
+    height: 250px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark stylish-color-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-haspopup="true" aria-expanded="false">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-haspopup="true" aria-expanded="false">Resimler</a>
+                </li>
+
+            </ul>
+
+            <div class="md-form my-0">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+                <span th:text="'Hoşgeldin ' + ${user.name} +' '+ ${user.surname} + '!'" style="color: white;" />
+                </a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="http://localhost:9092/login/loginpage">Çıkış Yap</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div th:if="${user.getGender().name()} == 'MALE'">
+        <div class="container mt-3">
+            <h2>Size Özel Haberler</h2>
+            <p>Resimlere tıklayarak büyütüp küçültebilirsiniz.</p>
+
+            <div class="row mb-4">
+                <div class="col-lg-4 my-3">
+                  <div class="card">
+                    <div class="view overlay">
+                      <img src="https://im.haberturk.com/2022/10/05/3526448_722dfd266d04907e07470ac630580e0d_640x640.jpg" class="card-img-top zoomE"
+                        alt="Spor">
+                    </div>
+
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <strong>Spor Haberleri</strong>
+                      </h4>
+                      <hr>
+                      </p>
+                      <p class="font-small font-weight-bold dark-grey-text mb-1">
+                        <i class="far fa-clock-o"></i> 05/10/2022</p>
+                      <p class="font-small grey-text mb-0">Süper Lig'in 8. haftasındaki derbide Beşiktaş'la 0-0 berabere kalan
+                          Fenerbahçe'de gözler UEFA Avrupa Ligi'nde oynanacak AEK Larnaca maçına çevrildi. </p>
+                      <p class="text-right mb-0 font-small font-weight-bold">
+                        <a href="https://www.haberturk.com/fenerbahce-aek-larnaca-maci-ne-zaman-saat-kacta-hangi-kanalda-fb-avrupa-maci-ne-zaman-fenerbahce-haberleri-3526783-spor/4">haberin devamı...
+                          <i class="fas fa-angle-right"></i>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 mt-3">
+                  <div class="card">
+                    <div class="view overlay">
+                      <img src="http://www.borusanotomotiv.com/Uploads/2022%20-%20basın-bultenleri/Nisan%202022/21.04.2022/yeni-bmw-7-serisi-1-kopya.jpg" class="card-img-top zoomE"
+                        alt="Araba">
+                    </div>
+
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <strong>Otomotiv Haberleri</strong>
+                      </h4>
+                      <hr>
+                      <p class="font-small font-weight-bold dark-grey-text mb-1">
+                        <i class="far fa-clock-o"></i> 04/10/2022</p>
+                      <p class="font-small grey-text mb-0">Geçtiğimiz günlerde yeni tanıtılan BMW modeli
+                          yoğun ilgi gördü. Satış rakamlarını alt üst etmesi beklenen yeni modelin ne zaman satışa sunulacağı açıklanmadı.</p>
+                      <p class="text-right mb-0 font-small font-weight-bold">
+                        <a href="http://www.borusanotomotiv.com/kurumsal-iletisim/basin-bultenleri/bmw-nin-amiral-gemisi-yeni-bmw-7-serisi-kisiye-ozel-luks-mobiliteyi-yeniden-yorumluyor">haberin devamı...
+                          <i class="fas fa-angle-right"></i>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 mt-3">
+                  <div class="card">
+                    <div class="view overlay">
+                      <img src="https://www.luxsaatler.com/dimg/urun/22954230832928223730IMG-20201208-WA0171.jpg" class="card-img-top zoomE"
+                        alt="Giyim">
+                    </div>
+
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <strong>Giyim-Kuşam Haberleri</strong>
+                      </h4>
+                      <hr>
+                      <p class="font-small font-weight-bold dark-grey-text mb-1">
+                        <i class="far fa-clock-o"></i> 04/10/2022</p>
+                      <p class="font-small grey-text mb-0">Önümüzdeki aylarda satışa sunulması beklenen Rolex saatten ilk görüntüler geldi.
+                      Yüksek fiyat ile çıkması beklenen yeni Rolex modelinin satış rakamlarının nasıl olacağı soru işareti.</p>
+                      <p class="text-right mb-0 font-small font-weight-bold">
+                        <a href="https://www.sondakika.com/haber/haber-krize-ragmen-luks-saatlerde-talep-patlamasi-15240062/">haberin devamı...
+                          <i class="fas fa-angle-right"></i>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+            <div class="row mb-4">
+                <div class="col-lg-4 my-3">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img src="https://icdn.ensonhaber.com/resimler/diger/kok/2022/08/19/iphone-14_1165.jpg" class="card-img-top zoomE"
+                                 alt="iPhone">
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <strong>Teknoloji Haberleri</strong>
+                            </h4>
+                            <hr>
+                            </p>
+                            <p class="font-small font-weight-bold dark-grey-text mb-1">
+                                <i class="far fa-clock-o"></i> 07/09/2022</p>
+                            <p class="font-small grey-text mb-0">Apple, daha önce iPhone 14 tanıtım tarihini 7 Eylül olarak açıklamıştı. Beklenen gün geldi
+                                ve şirket, bu akşam TSİ 20.00'de düzenleyeceği etkinlikte yeni modellerini tüm dünyaya tanıtacak.</p>
+                            <p class="text-right mb-0 font-small font-weight-bold">
+                                <a href="https://www.ensonhaber.com/teknoloji/iphone-14-modellerinin-fiyatlari-ortaya-cikti">haberin devamı...
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-3">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img src="https://www.cnet.com/a/img/resize/50d07895f0e23f1cf03194ab4cc567a7daa60d93/hub/2022/10/04/a47f255e-4d70-4847-979b-981ddb5b9d92/tesla-optimus-robot-2.jpg?auto=webp" class="card-img-top zoomE"
+                                 alt="sample-image">
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <strong>Teknoloji Haberleri</strong>
+                            </h4>
+                            <hr>
+                            <p class="font-small font-weight-bold dark-grey-text mb-1">
+                                <i class="far fa-clock-o"></i> 01/10/2022</p>
+                            <p class="font-small grey-text mb-0">Elon Musk'ın insansı robotu 'Optimus' görücüye çıktı
+                                Tesla'nın uzun zamandır beklenen insansı robotu Optimus’u, Cuma gecesi Yapay Zeka Günü'nde tanıttı.
+                                Etkinlikte sahneye çıkan ve seyircileri selamlayan Optimus, dans da etti. </p>
+                            <p class="text-right mb-0 font-small font-weight-bold">
+                                <a href="https://www.ntv.com.tr/video/teknoloji/elon-muskin-insansi-robotu-optimus-gorucuye-cikti%2CsfvgJ2WgbU2kretXuxwnnw">haberin devamı...
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-3">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img src="https://www.webtekno.com/images/editor/default/0001/91/da3e64147c0d16ffb89523940bb622da7426f4c4.jpeg" class="card-img-top zoomE"
+                                 alt="sample-image">
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <strong>Oyun Dünyası Haberleri</strong>
+                            </h4>
+                            <hr>
+                            <p class="font-small font-weight-bold dark-grey-text mb-1">
+                                <i class="far fa-clock-o"></i> 05/10/2022</p>
+                            <p class="font-small grey-text mb-0">Steam'in kullanıma sunduğu yeni 'Chart' sayfası, en çok satan oyunların ülkeler bazında takip edilebilmesini sağladı.
+                                Bu özellik kapsamında geçtiğimiz hafta Türkiye'de en çok satan oyunlar da belli oldu.</p>
+                            <p class="text-right mb-0 font-small font-weight-bold">
+                                <a href="https://www.webtekno.com/steam-turkiye-en-cok-satan-oyunlar-h128565.html">haberin devamı...
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div th:if="${user.getGender().name()} == 'FEMALE'">
+        <div class="container mt-3">
+            <h2>Size Özel Haberler</h2>
+            <p>Resimlere tıklayarak büyütüp küçültebilirsiniz.</p>
+
+            <div class="row mb-4">
+                <div class="col-lg-4 my-3">
+                  <div class="card">
+                    <div class="view overlay">
+                      <img src="https://cdn1.ntv.com.tr/gorsel/oZasr-SXy0CTbghkAdCJbA.jpg?width=1000&mode=both&scale=both&v=1665041633227" class="card-img-top zoomE"
+                        alt="sample image">
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <strong>Spor Haberleri</strong>
+                      </h4>
+                      <hr>
+                      </p>
+                      <p class="font-small font-weight-bold dark-grey-text mb-1">
+                        <i class="far fa-clock-o"></i> 05/10/2022</p>
+                      <p class="font-small grey-text mb-0">A Milli Kadın Voleybol Takımı, FIVB Dünya Şampiyonası'nın 2. tur F Grubu'ndaki ikinci maçında Kanada'yı 3-0 mağlup etti.
+                          Sırbistan’ın Dominik Cumhuriyeti'ni mağlup etmesiyle Filenin Sultanları, FIVB Kadınlar Dünya Şampiyonası'nda çeyrek finali garantiledi.
+                          Milliler, F Grubundaki üçüncü maçında...</p>
+                      <p class="text-right mb-0 font-small font-weight-bold">
+                        <a href="https://www.hurriyet.com.tr/sporarena/filenin-sultanlarinin-yeni-rakibi-kanada-turkiye-kanada-voleybol-milli-maci-ne-zaman-saat-kacta-ve-hangi-kanalda-42148255">haberin devamı...
+                          <i class="fas fa-angle-right"></i>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 text-left mt-3">
+                  <div class="card">
+                    <div class="view overlay">
+                      <img src="https://cdn1.ntv.com.tr/gorsel/odGOkW77v0eo6E7okwtn9w.jpg?width=1000&mode=both&scale=both&v=1661691401658" class="card-img-top zoomE"
+                        alt="sample-image">
+                    </div>
+
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <strong>Moda&Güzellik Haberleri</strong>
+                      </h4>
+                      <hr>
+                      <p class="font-small font-weight-bold dark-grey-text mb-1">
+                        <i class="far fa-clock-o"></i> 02/08/2022</p>
+                      <p class="font-small grey-text mb-0">Gözlük/güneş gözlüğü günlük hayatta en sık kullandığımız aksesuarlardan biri. Siz de günlük hayatınızda hem gözlük kullanıyor hem de makyaj yapmayı seviyorsanız,
+                          sıralayacağımız makyaj tüyoları tam size göre. İşte gözlük kullanırken yüz hatlarınızı ve makyajınızı en iyi şekilde ortaya çıkaracak makyaj tüyoları...</p>
+                      <p class="text-right mb-0 font-small font-weight-bold">
+                        <a href="https://www.ntv.com.tr/galeri/n-life/moda-ve-guzellik/gozluk-takanlar-nasil-makyaj-yapmali,SNNA3pto90irfqRWc9i9Eg">haberin devamı...
+                          <i class="fas fa-angle-right"></i>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 text-left mt-3">
+                  <div class="card">
+                    <div class="view overlay">
+                      <img src="https://im.haberturk.com/2018/04/17/ver1524923414/1923789_eb8034178472a346c6b2275450d7443c.jpg" class="card-img-top zoomE"
+                        alt="sample-image">
+                    </div>
+
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <strong>Yaşam&Moda Haberleri</strong>
+                      </h4>
+                      <hr>
+                      <p class="font-small font-weight-bold dark-grey-text mb-1">
+                        <i class="far fa-clock-o"></i> 26/09/2022</p>
+                      <p class="font-small grey-text mb-0">Kendinizi iyi hissetmediğimiz zamanlarda çareyi genelde alışverişte arayanlardan mısınız?
+                          Alışverişi bitirdikten sonra pişmanlık duymak yerine kendinizi mutlu hissetmek istiyorsanız,
+                          akıllı alışveriş ipuçlarına kulak verin. İşte motivasyonunuzu yükseltecek, kendinizi kazançlı görmenizi sağlayacak akıllı alışverişin yolları...</p>
+                      <p class="text-right mb-0 font-small font-weight-bold">
+                        <a href="https://www.ntv.com.tr/galeri/n-life/lifestyle/kadinlar-icin-5-akilli-alisveris-tuyosu,W_sBip7WAEChH52U1nucQQ/uCLt0Esdt0u6-Q2MNvGNhw">haberin devamı...
+                          <i class="fas fa-angle-right"></i>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div class="row mb-4">
+                <div class="col-lg-4 my-3">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img src="https://cdn1.ntv.com.tr/gorsel/0CvfmE5cbUymgZXjlJfRHQ.jpg?width=1000&mode=both&scale=both&v=1658059619057" class="card-img-top zoomE"
+                                 alt="sample image">
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <strong>Anne&Çocuk Haberleri</strong>
+                            </h4>
+                            <hr>
+                            </p>
+                            <p class="font-small font-weight-bold dark-grey-text mb-1">
+                                <i class="far fa-clock-o"></i> 17/07/2022</p>
+                            <p class="font-small grey-text mb-0">Limitsiz zamanı birlikte geçirmek mi yoksa kaliteli zaman mı? Uzmanlar, ebeveynlerle çocukların birlikte kaliteli zaman geçirmesini daha anlamlı buluyor.
+                                Öyleyse hafta sonu ya da okul sonrası akşamları evde keyifli ve verimli geçirmek için bazı önerilere ihtiyacınız olabilir. İşte evde oynanabilecek oyunlar...</p>
+                            <p class="text-right mb-0 font-small font-weight-bold">
+                                <a href="https://www.ntv.com.tr/galeri/n-life/anne-ve-cocuk/evde-cocukla-iyi-vakit-gecirmek-icin-oyun-onerileri,ryMYbKpA1UGNzqwjvx84hQ/tu4xVCvd6ka9Kgux2YT1og">haberin devamı...
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 text-left mt-3">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img src="https://cdn1.ntv.com.tr/gorsel/Rd5zrWkq8UKk9L0MT1OAqA.jpg?width=1000&mode=both&scale=both&v=1664267428262" class="card-img-top zoomE"
+                                 alt="sample-image">
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <strong>Sağlıklı Yaşam Haberleri</strong>
+                            </h4>
+                            <hr>
+                            <p class="font-small font-weight-bold dark-grey-text mb-1">
+                                <i class="far fa-clock-o"></i> 27/08/2022</p>
+                            <p class="font-small grey-text mb-0">Neden kilo veremiyorum?
+                                "Pek çok kez diyet yapmama rağmen neden zayıflayamıyorum?"
+                                "Kilo vermemin önündeki engel ne olabilir?" İşte, bu sorulara yanıt niteliğinde, kilo vermeyi zorlaştıran veya yavaşlatan etkenler...KİLO VERMEYİ YAVAŞLATAN NEDENLER?
+                                Düşük metabolizma hızı, insülin direnci... </p>
+                            <p class="text-right mb-0 font-small font-weight-bold">
+                                <a href="https://www.ntv.com.tr/galeri/n-life/saglikli-yasam/neden-kilo-veremiyorum,uKII-tyU7E2kaOYH9qkUWg/Rd5zrWkq8UKk9L0MT1OAqA">haberin devamı...
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 text-left mt-3">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img src="https://cdn1.ntv.com.tr/gorsel/1mxQWERkcEO9FR_OPjWj9Q.jpg?width=1000&mode=both&scale=both&v=1664944998399" class="card-img-top zoomE"
+                                 alt="sample-image">
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <strong>Magazin Haberleri</strong>
+                            </h4>
+                            <hr>
+                            <p class="font-small font-weight-bold dark-grey-text mb-1">
+                                <i class="far fa-clock-o"></i> 05/10/2022</p>
+                            <p class="font-small grey-text mb-0">Angelina Jolie, mahkemeye sunduğu belgelerde Brad Pitt'in özel jetleriyle yaptıkları bir uçak yolculuğu sırasında,
+                                sarhoşken kendisine ve iki çocuğuna saldırdığını iddia etti. Ailenin Fransa'dan Los Angeles'a seyahati sırasında gerçekleştiği belirtilen olayda Jolie,
+                                Pitt'in kendisini kafasından tutarak...</p>
+                            <p class="text-right mb-0 font-small font-weight-bold">
+                                <a href="https://www.ntv.com.tr/galeri/n-life/magazin/angelina-jolieden-brad-pitte-suclama,4eUiHSr_AUmJZB5yhUVE0A/1mxQWERkcEO9FR_OPjWj9Q">haberin devamı...
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-white">
+        <div class="container p-4 pb-0">
+            <section class="mb-4">
+                <a
+                        class="btn text-white btn-floating m-1"
+                        style="background-color: #3b5998;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-facebook-f"></i
+                ></a>
+
+                <a
+                        class="btn text-white btn-floating m-1"
+                        style="background-color: #55acee;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-twitter"></i
+                ></a>
+
+                <a
+                        class="btn text-white btn-floating m-1"
+                        style="background-color: #dd4b39;"
+                        href="https://www.google.com.tr"
+                        role="button"
+                ><i class="fab fa-google"></i
+                ></a>
+
+                <a
+                        class="btn text-white btn-floating m-1"
+                        style="background-color: #ac2bac;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-instagram"></i
+                ></a>
+
+                <a
+                        class="btn text-white btn-floating m-1"
+                        style="background-color: #0082ca;"
+                        href="https://www.linkedin.com/in/cem-gunduz/"
+                        role="button"
+                ><i class="fab fa-linkedin-in"></i
+                ></a>
+
+                <a
+                        class="btn text-white btn-floating m-1"
+                        style="background-color: #333333;"
+                        href="https://github.com/cemGunduz111"
+                        role="button"
+                ><i class="fab fa-github"></i
+                ></a>
+            </section>
+        </div>
+
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white">Emre Cem Gündüz</a>
+        </div>
+    </footer>
+</body>
+
+<script>
+    window.onload = () => {
+        let all = document.getElementsByClassName("zoomE");
+        console.log(all)
+        if (all.length>0) { for (let i of all) {
+            i.onclick = () => {
+
+                if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
+                    if (document.exitFullscreen) { document.exitFullscreen(); }
+                    else { document.webkitCancelFullScreen(); }
+                }
+
+                else {
+                    if (i.requestFullscreen) { i.requestFullscreen(); }
+                    else { i.webkitRequestFullScreen(); }
+                }
+            };
+        }}
+    };
+
+</script>
+</html>
